@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, Variants } from 'framer-motion'
 
 interface Props {
   children: ReactNode
@@ -21,7 +21,7 @@ export default function Reveal({
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once, margin: '0px 0px -60px 0px' })
 
-  const variants = {
+  const variants: Variants = {
     hidden: {
       opacity: 0,
       y:     direction === 'up'    ? 32 : 0,
